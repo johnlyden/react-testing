@@ -2,17 +2,20 @@ import { renderComponent, expect } from '../test_helper';
 import CommentBox from '../../src/components/comment_box';
 
 describe('CommentBox', () => {
+  let component;
+  
+  beforeEach(() => {
+    component = renderComponent(CommentBox); // jQuery wrapped version of the component
+  })
+
   it('has the correct clas', () => {
-    const component = renderComponent(CommentBox);
     expect(component).to.have.class('comment-box');
   })
   it('has a text area', () => {
-    const component = renderComponent(CommentBox); // jQuery wrapped version of the component
     expect(component.find('textarea')).to.exist;
   });
 
   it('it has a button', () => {
-   const component = renderComponent(CommentBox);
-   expect(component.find('button')).to.exist; 
+    expect(component.find('button')).to.exist; 
   });
 })
