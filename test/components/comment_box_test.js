@@ -3,7 +3,7 @@ import CommentBox from '../../src/components/comment_box';
 
 describe('CommentBox', () => {
   let component;
-  
+
   beforeEach(() => {
     component = renderComponent(CommentBox); // jQuery wrapped version of the component
   })
@@ -11,11 +11,27 @@ describe('CommentBox', () => {
   it('has the correct clas', () => {
     expect(component).to.have.class('comment-box');
   })
+
   it('has a text area', () => {
     expect(component.find('textarea')).to.exist;
   });
 
   it('it has a button', () => {
-    expect(component.find('button')).to.exist; 
+    expect(component.find('button')).to.exist;
   });
+
+  describe('entering some text', () => {
+    beforeEach(() => {
+      component.find('textarea').simulate('change', 'new comment');
+    });
+
+    it('shows text that is entered', () => {
+
+    });
+
+    it('when submitted, clears the input', () => {
+
+    });
+  })
+
 })
